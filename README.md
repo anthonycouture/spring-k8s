@@ -11,7 +11,7 @@ Création du tag :
 Push de l'image sur le répertoire GitHub :  
 `docker push docker.pkg.github.com/anthonycouture/spring-k8s/back:latest`
 
-# Déploiement du l'image sur Kubernetes
+# Déploiement de l'image sur Kubernetes
 ## Création du secret dans Kubernetes
 Pour pouvoir utiliser l'image il faut pouvoir s'identifier sur GitHub. Comme je suis connecté avec Docker je récupère l'authentification de docker sur Kubernetes :  
 
