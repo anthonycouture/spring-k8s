@@ -57,3 +57,24 @@ Nous pouvons visualiser les pods avec cette commande :
 `kubectl get pod`  
 Nous pouvons visualiser le déploiement avec cette commande :  
 `kubectl get deployment`
+
+# Création du service dans Kubernetes
+Création du service NodePort pour avoir accès de l'extérieur du cluster :
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: back-service
+spec:
+  type: NodePort
+  selector:
+    app: back
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30001
+    name: back-np
+```
+Test d'appel à l'API (remplacer 172.28.100.26 par l'ip de votre machine où est déployer l'application) :   
+`curl -s http://172.28.100.26:30001`  
+Le résultat est : **Hello World !**
