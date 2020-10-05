@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back-deployment
+  labels:
+    app: back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: back
+  template:
+    metadata:
+      labels:
+        app: back
+    spec:
+      containers:
+        - name: back
+          image: docker.pkg.github.com/anthonycouture/spring-k8s/back:latest
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080
+      imagePullSecrets:
+        - name: regcred
