@@ -76,7 +76,7 @@ spec:
     name: back-np
 ```
 Ensuite nous lançons le service :  
-`kubectl apply -f back-service.yaml`
+`kubectl apply -f back-service.yaml`  
 Test d'appel à l'API (remplacer 172.28.100.26 par l'ip de votre machine où est déployer l'application) :   
 `curl -s http://172.28.100.26:30001`  
 Le résultat est : **Hello World !**
