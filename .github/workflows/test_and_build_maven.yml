@@ -1,4 +1,4 @@
-name: test_and_package
+name: test_and_build_maven
 
 on: [ push ]
 
@@ -23,8 +23,8 @@ jobs:
       - name: Maven package
         run: mvn package
 
-      - name: Upload jar
-        uses: actions/upload-artifact@v2.2.2
-        with:
-          name: spring-k8s-jar
-          path: target/*.jar
+#      - name: Upload jar
+#        uses: actions/upload-artifact@v2.2.2
+#        with:
+#          name: spring-k8s-jar
+#          path: target/*.jar
