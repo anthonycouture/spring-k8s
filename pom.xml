@@ -11,7 +11,7 @@
 	<groupId>fr.k8s</groupId>
 	<artifactId>testDeploiement</artifactId>
 	<version>1.0.0</version>
-	<name>testDeploiement</name>
+	<name>spring-k8s</name>
 	<description>Test pour deploiement k8s</description>
 	<packaging>jar</packaging>
 
