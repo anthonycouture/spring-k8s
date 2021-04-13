@@ -26,4 +26,5 @@ jobs:
       - name: Upload jar
         uses: actions/upload-artifact@v2.2.2
         with:
+          name: spring-k8s jar
           path: target/*.jar
