@@ -14,9 +14,10 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Push to GitHub Packages
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          context: .
-          push: true
-          tags: anthonycouture/spring-k8s/test
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: anthonycouture/spring-k8s/test
+          tag_with_ref: true
