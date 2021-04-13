@@ -1,6 +1,6 @@
 name: test_and_package
 
-on: [push]
+on: [ push ]
 
 jobs:
   # This workflow contains a single job called "build"
@@ -22,3 +22,8 @@ jobs:
 
       - name: Maven package
         run: mvn package
+
+      - name: Upload jar
+        uses: actions/upload-artifact@v2.2.2
+        with:
+          path: target/*.jar
