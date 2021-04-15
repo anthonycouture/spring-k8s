@@ -1,4 +1,4 @@
-name: publish-docker
+name: publish-image-docker
 
 on:
   workflow_run:
@@ -19,5 +19,5 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: anthonycouture/spring-k8s/test
+          repository: anthonycouture/spring-k8s/back
           tag_with_ref: true
