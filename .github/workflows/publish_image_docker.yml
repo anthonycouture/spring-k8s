@@ -8,6 +8,7 @@ on:
 
 jobs:
   push_to_registry:
+    if: ${{ github.ref == 'refs/heads/main' }}
     name: Push Docker image to GitHub Packages
     runs-on: ubuntu-latest
     steps:
