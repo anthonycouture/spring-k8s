@@ -1,4 +1,4 @@
-name: test_and_build_maven
+name: build_push
 
 on: [ push ]
 
@@ -22,9 +22,18 @@ jobs:
 
       - name: Maven package
         run: mvn package
-
-#      - name: Upload jar
-#        uses: actions/upload-artifact@v2.2.2
-#        with:
-#          name: spring-k8s-jar
-#          path: target/*.jar
+  push_to_registry:
+    needs: build
+    name: Push Docker image to GitHub Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: anthonycouture/spring-k8s/back
+          tag_with_ref: true
